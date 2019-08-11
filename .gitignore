@@ -1,0 +1,7 @@
+dist/
+dist-newstyle/
+.ghc.environment.*
+logs/
+result
+.hspec-failures
+.liquid/

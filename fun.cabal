@@ -1,0 +1,64 @@
+cabal-version:       2.4
+name:                fun
+version:             0.1.0.0
+synopsis:            A toy FP language
+license:             MIT
+license-file:        LICENSE
+author:              Vasiliy Yorkin
+maintainer:          vasiliy.yorkin@gmail.com
+copyright:           2019 (c) Vasiliy Yorkin aka vyorkin
+category:            Language
+extra-source-files:  CHANGELOG.md, README.md
+
+common main
+  build-depends:       base ^>= 4.12
+                     , megaparsec ^>= 7.0
+                     , parser-combinators ^>= 1.2
+  default-language:    Haskell2010
+  default-extensions:  OverloadedStrings
+
+common exe
+  import:              main
+  ghc-options:         -Wall
+                       -rtsopts
+                       -Wincomplete-uni-patterns
+                       -Wincomplete-record-updates
+                       -Wcompat
+                       -Widentities
+                       -Wredundant-constraints
+                       -fhide-source-paths
+                       -Wmissing-export-lists
+                       -Wpartial-fields
+
+library
+  import:              main
+  exposed-modules:     NanoParsec
+                     , Calculator
+                     , While
+  hs-source-dirs:      src
+  ghc-options:         -Wall
+                       -Wincomplete-uni-patterns
+                       -Wincomplete-record-updates
+                       -Wcompat
+                       -Widentities
+                       -Wredundant-constraints
+                       -fhide-source-paths
+                       -Wpartial-fields
+
+executable while
+  import:              exe
+  hs-source-dirs:      app/while
+  main-is:             Main.hs
+  build-depends:       fun
+
+executable calculator
+  import:              exe
+  hs-source-dirs:      app/calculator
+  main-is:             Main.hs
+  build-depends:       fun
+
+executable untyped
+  import:              exe
+  hs-source-dirs:      app/untyped
+  main-is:             Main.hs
+  build-depends:       fun
