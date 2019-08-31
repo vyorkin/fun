@@ -15,6 +15,7 @@ common main
                      , megaparsec ^>= 7.0
                      , parser-combinators ^>= 1.2
                      , haskeline ^>= 0.7
+                     , pretty ^>= 1.1
   default-language:    Haskell2010
   default-extensions:  OverloadedStrings
 
@@ -39,6 +40,7 @@ library
                      , Syntax
                      , Parser
                      , Eval
+                     , Pretty
                      , REPL
   hs-source-dirs:      src
   ghc-options:         -Wall
